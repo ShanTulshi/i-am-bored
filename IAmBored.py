@@ -1,6 +1,5 @@
 import random
 
-
 ideas = [["Go on a walk", "Challenge yourself to leave your cell phone in your purse or pocket. Admire the view. Stop and smell the roses."],
 		 ["Organize something", "Don't tackle a huge organizational project like your closet. Instead, choose something small and manageable."],
 		 ["Do your laundry", "You'll thank me later when you have clean clothes to wear."],
@@ -35,15 +34,19 @@ ideas = [["Go on a walk", "Challenge yourself to leave your cell phone in your p
 		 ["Figure out a way to make more money", "1. Become a tutor\n2. Sell your junk\n3. Do odd jobs\n4. Invest in domain names\n5. Design something and sell it on Etsy\n6. Give driving lessons"],
 		 ["Update your gadgets", "Make sure you're using the latest operating system on your computer and that your smartphone is up to date"],
 		 ["Drink a full glass of water", "Dehydration can make you sluggish. If you're tired and bored, pour a glass of water and drink it."],
-		 ["Update your personal finances", "Check your savings and checking accounts. Where can you cut back and save more?"]
+		 ["Update your personal finances", "Check your savings and checking accounts. Where can you cut back and save more?"],
+		 ["Contribute to open source", "Find some software that needs help and help out!"]
 ]
 
+def give_suggestion():
+	return ideas[random.randint(0, len(ideas)-1)]
 
-choice = 'y'
-while(choice=='y'):
-	print("\n")
-	i = random.randint(0, len(ideas)-1)
-	print(ideas[i][0])
-	print(ideas[i][1])
-	print("Do you want another suggestion? (y/n): ", end='')
-	choice = input()
+if(__name__ == "__main__"):
+	choice = 'y'
+	while(choice=='y'):
+		print('\n')
+		idea = give_suggestion()
+		print('\n'.join(idea))
+		print('Do you want another suggestion? (y/n): ', end='')
+		choice = input().lower()
+
